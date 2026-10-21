@@ -84,7 +84,7 @@ export default function Services() {
       <div
         className="sticky top-[100px] sm:top-[120px] z-10 pointer-events-none w-full"
         style={{
-          marginBottom: "-120px"
+          marginBottom: "-10px"
         }}
       >
         <div
