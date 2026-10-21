@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-montreal: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Syne';
+  src: url('/fonts/Syne-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+button, input, select, textarea, a {
+  font-family: inherit;
+}
+
+:root {
+  --montreal: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --syne: 'Syne', sans-serif;
+
+  --primary: #000000;
+  --secondary: #ffffff;
+  --background: #efefef;
+  --foreground: #000000;
+  --text-muted: #555555;
+  --accent-cream: #f8e5cb;
+
+  --animation-fast: 0.2s cubic-bezier(0.75, 0, 0.25, 1);
+  --animation-primary: 0.4s cubic-bezier(0.75, 0, 0.25, 1);
+  --animation-smooth: 0.6s cubic-bezier(0.75, 0, 0.25, 1);
+  --animation-navigation: 1.2s cubic-bezier(0.75, 0, 0.25, 1);
+  --animation-navigation-forward: 1s cubic-bezier(0.8, 0, 0.1, 1);
+  --animation-navigation-backward: 0.6s cubic-bezier(0.8, 0, 0.1, 1);
+
+  --fs-100: clamp(2.5rem, 7.1vw, 7.5rem);
+  --fs-60: clamp(2.5rem, 4.26vw, 4.375rem);
+  --fs-50: clamp(1.875rem, 3.5vw, 60px);
+  --fs-44: clamp(1.5rem, 3vw, 2.75rem);
+  --fs-40: clamp(1rem, 2.5vw, 2.5rem);
+  --fs-32: clamp(1.5rem, 1.8vw, 2.1875rem);
+  --fs-24: clamp(1.25rem, 1.5vw, 1.5rem);
+
+  --spacing-default: 10.5rem;
+  --spacing-default-mobile: 4.125rem;
+  --spacing-small: 4.6875rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--montreal);
+  background-color: #F2E6DB;
+  color: #000000;
+  -webkit-overflow-scrolling: auto;
+  overscroll-behavior-y: none;
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+body {
+  background-color: #F2E6DB;
+  color: #000000;
+  font-family: var(--montreal);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+}
+
+/* KOTA Container */
+.container {
+  width: 100%;
+  max-width: calc(1400px + 15%);
+  margin: 0 auto;
+  padding: 0 7.5vw;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 5%;
+  }
+}
+
+/* Giant 12vw Section Staggered Headings (Our Services, Our Work, Our Results) */
+.large-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(3.5rem, 12vw, 11rem);
+  line-height: 0.85;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.large-heading-bottom {
+  padding-left: 13.5%;
+  margin-top: 0.5rem;
+}
+
+/* Original KOTA Pill Button */
+.kota-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  font-family: var(--montreal);
+}
+
+.kota-btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.75rem 1.5rem 0.85rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease-out;
+}
+
+.kota-btn-border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 44px;
+  border-radius: 2.0625rem;
+  border: 2px solid currentColor;
+  pointer-events: none;
+  transition: width 0.2s ease, transform 0.3s ease-out, border-color 0.2s ease;
+}
+
+.kota-btn:hover .kota-btn-border {
+  width: 44px;
+}
+
+.kota-btn:hover .kota-btn-border,
+.kota-btn:hover .kota-btn-inner {
+  transform: translateX(-10px);
+}
+
+.kota-btn-arrow {
+  width: 16px;
+  margin-left: 1rem;
+  transform: translateY(2px);
+  fill: currentColor;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes StatisticsPanel_rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Rainbow Box */
+.rainbow-panel-card {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  width: 100%;
+  background: #000;
+  border-radius: 20px 200px 20px 20px;
+  padding: 4rem 5rem 2.5rem 4rem;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .rainbow-panel-card {
+    border-radius: 10px 80px 10px 10px;
+    padding: 2rem 1.5rem;
+  }
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
