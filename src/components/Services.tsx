@@ -77,7 +77,7 @@ export default function Services() {
       className="relative bg-transparent text-black z-20"
       style={{
         paddingTop: "clamp(60px, 8vw, 100px)",
-        paddingBottom: "4rem"
+        paddingBottom: "1rem"
       }}
     >
       {/* 1. Sticky / Pinned "OUR SERVICES" Heading that scales and fades on scroll */}
@@ -264,8 +264,8 @@ export default function Services() {
           </div>
         ))}
 
-        {/* Scroll runway spacer to let all cards remain cleanly stacked together before transitioning to next section */}
-        <div className="h-[65vh] w-full pointer-events-none" />
+        {/* Swift scroll runway spacer before smoothly transitioning to next section */}
+        <div className="h-[16vh] w-full pointer-events-none" />
       </div>
     </section>
   );

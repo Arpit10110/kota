@@ -6,6 +6,17 @@ import Magnetic from "./Magnetic";
 
 const TESTIMONIALS = [
   {
+    id: "tangerine",
+    bgColor: "#efb2d9",
+    logoSrc: "/images/tangerine-logo.svg",
+    alt: "Tangerine",
+    quote:
+      "\"As a design agency ourselves, handing responsibility for our web re-design to another creative agency needed to be well considered. We were immediately impressed by their designs and their interpretation of our brief. Nice bunch of people to work with too!\"",
+    author: "Laurie Bushe",
+    role: "Head of Marketing",
+    link: "https://kota.co.uk/work/tangerine/"
+  },
+  {
     id: "florence",
     bgColor: "#a8e1ec",
     logoSrc: "/images/Florence-Logo-White.svg",
@@ -59,23 +70,11 @@ const TESTIMONIALS = [
     author: "Bianca Cristescu",
     role: "Key Account Director, ISI Global",
     link: "https://kota.co.uk/work/isi-global/"
-  },
-  {
-    id: "tangerine",
-    bgColor: "#efb2d9",
-    logoSrc: "/images/tangerine-logo.svg",
-    alt: "Tangerine",
-    quote:
-      "\"As a design agency ourselves, handing responsibility for our web re-design to another creative agency needed to be well considered. We were immediately impressed by their designs and their interpretation of our brief. Nice bunch of people to work with too!\"",
-    author: "Laurie Bushe",
-    role: "Head of Marketing",
-    link: "https://kota.co.uk/work/tangerine/"
   }
 ];
 
 export default function Testimonials() {
-  // Tangerine is index 5 by default, with ISI Global (4), Incentive Games (3), and UPP (2) stacked behind
-  const [currentIndex, setCurrentIndex] = useState(5);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -199,8 +198,8 @@ export default function Testimonials() {
             >
               {TESTIMONIALS.map((item, idx) => {
                 // Distance behind active card in circular stack:
-                // k = 0 (active), k = 1 (1 card behind on left), k = 2 (2 cards behind), etc.
-                const k = (currentIndex - idx + totalCards) % totalCards;
+                // k = 0 (active), k = 1 (next card in sequence, peeking behind on left), k = 2 (2nd next), etc.
+                const k = (idx - currentIndex + totalCards) % totalCards;
                 const isActive = k === 0;
 
                 // Stack positions matching KOTA:

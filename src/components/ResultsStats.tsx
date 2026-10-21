@@ -208,7 +208,8 @@ export default function ResultsStats() {
         >
           {STATS_DATA.map((item, idx) => {
             // Distance behind the active card in circular stack:
-            const k = (currentIndex - idx + totalCards) % totalCards;
+            // k = 0 (active), k = 1 (next card in sequence, peeking behind), k = 2 (2nd next), etc.
+            const k = (idx - currentIndex + totalCards) % totalCards;
             const isActive = k === 0;
 
             let translateX = 0;
