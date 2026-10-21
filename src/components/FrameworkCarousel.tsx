@@ -30,7 +30,7 @@ export default function FrameworkCarousel() {
       id="carousel"
       className="relative flex flex-col justify-center bg-transparent text-black z-20 w-full"
       style={{
-        paddingTop: "0px",
+        paddingTop: "100px",
         paddingBottom: "208px",
         minHeight: "917px"
       }}
